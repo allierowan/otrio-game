@@ -5,8 +5,16 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create(game_params)
-    render :show
+    @game = Game.new(game_params)
+    if @game.save
+      redirect_to game_path(@game.id)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @game = Game.find(params[:id])
   end
 
   private

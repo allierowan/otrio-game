@@ -1,1 +1,13 @@
 <h1>Your Game</h1>
+<p>
+  Number of players: <%= @game.number_players %>
+</p>
+<% @game.players.each_with_index do |player, i| %>
+  <p>
+    Player #<%= i + 1%> color: <%= player.color %>
+  </p>
+<% end %>
+<p>
+  <%= @game.player_turn.color %>'s turn
+</p>
+<%= link_to "New Game", new_game_path %>
