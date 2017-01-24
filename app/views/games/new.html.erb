@@ -1,0 +1,6 @@
+<h1>Otrio</h1>
+<%= form_tag games_path, method: :post do %>
+  <%= label_tag "number_players", "How many players?" %>
+  <%= select("game", "number_players", Game::NUM_PLAYERS) %>
+  <%= submit_tag("Start Game") %>
+<% end %>
