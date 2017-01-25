@@ -6,7 +6,7 @@ class Game < ApplicationRecord
   NUM_PLAYERS = [2, 3, 4]
 
   def init_players
-    possible_colors = Piece::COLORS
+    possible_colors = Piece::COLORS.dup
     self.number_players.times do
       player_color = possible_colors.pop
       player = Player.new(color: player_color)

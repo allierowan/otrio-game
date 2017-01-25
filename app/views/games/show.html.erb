@@ -10,4 +10,91 @@
 <p>
   <%= @game.player_turn.color %>'s turn
 </p>
+
+<row>
+  <div class="col-md-4 board-square">
+    <div class="board-space lg-space">
+    </div>
+    <div class="board-space md-space">
+    </div>
+    <div class="board-space sm-space">
+    </div>
+  </div>
+  <div class="col-md-4 board-square">
+    <div class="board-space lg-space">
+    </div>
+    <div class="board-space md-space">
+    </div>
+    <div class="board-space sm-space">
+    </div>
+  </div>
+  <div class="col-md-4 board-square">
+    <div class="board-space lg-space">
+    </div>
+    <div class="board-space md-space">
+    </div>
+    <div class="board-space sm-space">
+    </div>
+  </div>
+</row>
+<row>
+  <div class="col-md-4 board-square">
+    <div class="board-space lg-space">
+    </div>
+    <div class="board-space md-space">
+    </div>
+    <div class="board-space sm-space">
+    </div>
+  </div>
+  <div class="col-md-4 board-square">
+    <div class="board-space lg-space">
+    </div>
+    <div class="board-space md-space">
+    </div>
+    <div class="board-space sm-space">
+    </div>
+  </div>
+  <div class="col-md-4 board-square">
+    <div class="board-space lg-space">
+    </div>
+    <div class="board-space md-space">
+    </div>
+    <div class="board-space sm-space">
+    </div>
+  </div>
+</row>
+<row>
+  <div class="col-md-4 board-square">
+    <div class="board-space lg-space">
+    </div>
+    <div class="board-space md-space">
+    </div>
+    <div class="board-space sm-space">
+    </div>
+  </div>
+  <div class="col-md-4 board-square">
+    <div class="board-space lg-space">
+    </div>
+    <div class="board-space md-space">
+    </div>
+    <div class="board-space sm-space">
+    </div>
+  </div>
+  <div class="col-md-4 board-square">
+    <div class="board-space lg-space">
+    </div>
+    <div class="board-space md-space">
+    </div>
+    <div class="board-space sm-space">
+    </div>
+  </div>
+</row>
+
+<% @game.players.each do |player| %>
+  <h4><%= player.color %>'s pieces:</h4>
+  <% player.pieces.each do |piece| %>
+    <div class="game-piece <%= piece.color %>-color size-<%= piece.size %>" draggable="true">
+    </div>
+  <% end %>
+<% end %>
 <%= link_to "New Game", new_game_path %>

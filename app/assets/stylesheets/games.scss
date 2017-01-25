@@ -1,3 +1,50 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.board-space {
+  font-size: 25em; /* This controls the size. */
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  border: 10px solid rgb(148, 148, 148);
+  position: relative;
+  border-radius: 0.35em;
+}
+.over {
+  border: 10px solid red;
+}
+.md-space {
+  font-size: 12em;
+  margin-left: -108px;
+  margin-bottom: 36px;
+}
+.sm-space {
+  font-size: 3em;
+  margin-left: -48px;
+  margin-bottom: 58px;
+}
+.game-piece {
+  font-size: 25em; /* This controls the size. */
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  border: 10px solid rgb(110, 8, 119);
+  position: relative;
+  border-radius: 0.35em;
+}
+.red-color {
+  border: 10px solid rgb(154, 22, 58);
+}
+.blue-color {
+ border: 10px solid rgb(16, 40, 113);
+}
+.green-color {
+ border: 10px solid rgb(38, 113, 64);
+}
+
+.size-1 {
+  font-size: 3em;
+}
+.size-2 {
+  font-size: 12em;
+}

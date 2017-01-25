@@ -41,6 +41,11 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
+    autoprefixer-rails (6.5.3.1)
+      execjs
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
     capybara (2.11.0)
@@ -87,6 +92,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    momentjs-rails (2.15.1)
+      railties (>= 3.1)
     multi_json (1.12.1)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
@@ -190,18 +197,20 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.3.6)
   byebug
   capybara
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  momentjs-rails
   pg (~> 0.18)
   pry
   puma (~> 3.0)
   rails (~> 5.0.1)
   rspec-rails
-  sass-rails (~> 5.0)
+  sass-rails (>= 3.2)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
