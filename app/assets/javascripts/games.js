@@ -8,9 +8,22 @@
   window.otrio.handleDragLeave = handleDragLeave;
   window.otrio.handleDrop = handleDrop;
   window.otrio.handleDragEnd = handleDragEnd;
+  window.otrio.elSize = elSize;
 
   var dragSrcEl = null;
   var gamePieceColor = null;
+
+  function elSize(e) {
+    if (e.classList.contains("lg-space") || e.classList.contains("size-3")) {
+      return "lg";
+    } else if (e.classList.contains("md-space") || e.classList.contains("size-2")) {
+      return "md";
+    }  else if (e.classList.contains("sm-space") || e.classList.contains("size-1")) {
+      return "sm";
+    } else {
+      return "None";
+    }
+  }
 
   function handleDragStart(e) {
     // Target (this) element is the source node.
@@ -21,6 +34,7 @@
 
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', this.outerHTML);
+
   }
 
   function handleDragOver(e) {
@@ -33,7 +47,9 @@
 
   function handleDragEnter(e) {
     // this / e.target is the current hover target.
-    this.classList.add('over');
+    if (elSize(dragSrcEl) == elSize(this)){
+      this.classList.add('over');
+    }
   }
 
   function handleDragLeave(e) {
@@ -48,7 +64,8 @@
     }
 
     // Don't do anything if dropping the same column we're dragging.
-    if (dragSrcEl != this) {
+    console.log(elSize(dragSrcEl));
+    if (dragSrcEl != this && (elSize(dragSrcEl) == elSize(this))) {
       // Set the source column's HTML to the HTML of the column we dropped on.
       dragSrcEl.style.display = "none";
 
