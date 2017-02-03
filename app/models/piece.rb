@@ -1,6 +1,7 @@
 class Piece < ApplicationRecord
   belongs_to :piece_set
-
+  has_one :board_spot
+  
   COLORS = ["red", "blue", "green", "purple"]
   SIZES = [1, 2, 3]
 

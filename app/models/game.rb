@@ -2,7 +2,10 @@ class Game < ApplicationRecord
   has_many :players
   belongs_to :player_turn, class_name: "Player", foreign_key: :player_turn_id, optional: true
   after_create :init_players
+  after_create :init_board
   has_many :pieces, through: :players
+  has_one :game_board
+  has_many :board_spots, through: :game_board
 
   NUM_PLAYERS = [2, 3, 4]
 
@@ -17,6 +20,10 @@ class Game < ApplicationRecord
     end
     self.player_turn = self.players.first
     self.save
+  end
+
+  def init_board
+    update(game_board: GameBoard.create())
   end
 
   def unplayed_pieces
