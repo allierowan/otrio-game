@@ -27,9 +27,22 @@ class Game < ApplicationRecord
     unplayed_pieces.select {|piece| piece.color == piece_color && piece.size == piece_size}.sample
   end
 
+  def game_turn_order
+    players.map { |player| player.color }
+  end
+
+  def player_with(color)
+    players.select { |player| player.color == color }.first
+  end
+
   def update_turn
-    index = players.index(player_turn)
-    self.update(player_turn_id: index + 1)
+    turn_order = self.game_turn_order
+    index = turn_order.index(player_turn.color)
+    if index == turn_order.size - 1
+      update(player_turn: player_with(turn_order[0]))
+    else
+      update(player_turn: player_with(turn_order[index + 1]))
+    end
   end
 
 end
