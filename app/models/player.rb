@@ -3,4 +3,8 @@ class Player < ApplicationRecord
   has_one :game, foreign_key: :player_turn_id
   has_one :piece_set
   has_many :pieces, through: :piece_set
+
+  def unplayed_pieces
+    pieces.select { |piece| !piece.played? }
+  end
 end

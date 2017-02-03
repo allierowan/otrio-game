@@ -20,7 +20,7 @@ class Game < ApplicationRecord
   end
 
   def unplayed_pieces
-    pieces.select { |piece| !piece.played }
+    pieces.select { |piece| !piece.played? }
   end
 
   def select_unplayed_piece(piece_color, piece_size)

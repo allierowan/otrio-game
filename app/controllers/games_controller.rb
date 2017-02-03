@@ -23,7 +23,7 @@ class GamesController < ApplicationController
     piece.play(piece_move_params[:x_pos], piece_move_params[:y_pos])
     @game.update_turn
     @game.save
-    redirect_to game_path(@game.id)
+    render json: @game
   end
 
   private

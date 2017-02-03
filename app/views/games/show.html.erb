@@ -90,11 +90,10 @@
   </div>
 </row>
 
-<% @game.players.each do |player| %>
-  <h4><%= player.color %>'s pieces:</h4>
-  <% player.pieces.each do |piece| %>
-    <div class="game-piece <%= piece.color %>-color size-<%= piece.size %>" draggable="true">
-    </div>
-  <% end %>
+<h4><%= @game.player_turn.color %>'s pieces:</h4>
+<% @game.player_turn.unplayed_pieces.each do |piece| %>
+  <div class="game-piece <%= piece.color %>-color size-<%= piece.size %>" draggable="true">
+  </div>
 <% end %>
+
 <%= link_to "New Game", new_game_path %>
