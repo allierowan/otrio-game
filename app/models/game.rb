@@ -52,4 +52,8 @@ class Game < ApplicationRecord
     end
   end
 
+  def non_turn_players
+    players.select { |player| player != player_turn }
+  end
+
 end
