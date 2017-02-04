@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .board-space {
-  font-size: 25em; /* This controls the size. */
+  font-size: 22em;
   display: inline-block;
   width: 0.4em;
   height: 0.4em;
@@ -15,16 +15,16 @@
 }
 .md-space {
   font-size: 12em;
-  margin-left: -108px;
-  margin-bottom: 36px;
+  margin-left: -100px;
+  margin-bottom: 28px;
 }
 .sm-space {
   font-size: 3em;
   margin-left: -48px;
-  margin-bottom: 58px;
+  margin-bottom: 52px;
 }
 .game-piece {
-  font-size: 25em; /* This controls the size. */
+  font-size: 22em; /* This controls the size. */
   display: inline-block;
   width: 0.4em;
   height: 0.4em;
@@ -50,4 +50,7 @@
 }
 .size-2 {
   font-size: 12em;
+}
+.board-row {
+  margin-bottom: 30px;
 }

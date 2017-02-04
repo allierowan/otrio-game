@@ -10,31 +10,32 @@
   <%= @game.player_turn.color.capitalize %>'s turn
 </p>
 
-
-<% 3.times do |y| %>
-<div class="row">
-  <% 3.times do |x| %>
-    <div class="col-md-4 board-square">
-      <% @game.game_board.spots_at(x+1, 3-y).each do |spot| %>
-        <div class="<%= spot.css_class_list %>">
+<div class="col-md-6">
+  <% 3.times do |y| %>
+    <div class="row board-row">
+      <% 3.times do |x| %>
+        <div class="col-md-4 board-square">
+          <% @game.game_board.spots_at(x+1, 3-y).each do |spot| %>
+            <div class="<%= spot.css_class_list %>">
+            </div>
+          <% end %>
         </div>
       <% end %>
-    </div>
-  <% end %>
-
     </div class="row">
   <% end %>
+</div>
 
-
-<h4><%= @game.player_turn.color %>'s pieces:</h4>
-<% @game.player_turn.unplayed_pieces.each do |piece| %>
-  <div class="game-piece <%= piece.color %>-color size-<%= piece.size %>" draggable="true">
-  </div>
-<% end %>
-<% @game.non_turn_players.each do |player| %>
-<h4><%= player.color %>'s pieces:</h4>
-  <% player.unplayed_pieces.each do |piece| %>
-    <div class="game-piece <%= piece.color %>-color size-<%= piece.size %>">
+<div class="col-md-6">
+  <h4><%= @game.player_turn.color %>'s pieces:</h4>
+  <% @game.player_turn.unplayed_pieces.each do |piece| %>
+    <div class="game-piece <%= piece.color %>-color size-<%= piece.size %>" draggable="true">
     </div>
   <% end %>
-<% end %>
+  <% @game.non_turn_players.each do |player| %>
+  <h4><%= player.color %>'s pieces:</h4>
+    <% player.unplayed_pieces.each do |piece| %>
+      <div class="game-piece <%= piece.color %>-color size-<%= piece.size %>">
+      </div>
+    <% end %>
+  <% end %>
+</div>
